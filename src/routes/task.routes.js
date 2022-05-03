@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const {getAlbums, getBeatles} = require('../controllers/tasks.controllers')
+const {getAlbums, getBeatles,getAnAlbum} = require('../controllers/tasks.controllers')
 
 const router = Router()
 
@@ -7,6 +7,7 @@ router.get('/albums', getAlbums)
 
 
 router.get('/beatles', getBeatles)
+router.get('/getalbum/:id', getAnAlbum)
 
 
 router.get('/', (res,req) => {

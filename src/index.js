@@ -6,6 +6,7 @@ const taskRoutes = require('./routes/task.routes')
 const app =  express()
 const port = 3000
 
+app.use(express.json())
 app.use(taskRoutes)
 app.use(bodyParser.json())
 app.use(cors())
