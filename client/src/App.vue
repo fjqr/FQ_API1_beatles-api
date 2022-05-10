@@ -1,12 +1,24 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
+import  Navbar  from './components/Navbar.vue'
+
+export default {
+
+  components: {
+    Navbar
+  },
+  setup() {
+
+  }
+}
 </script>
 
 <template>
   <header>
     <div>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <Navbar />
+        <!-- <RouterLink to="/">Home</RouterLink> -->
       </nav>
     </div>
   </header>
@@ -15,5 +27,4 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style>
-
 </style>
