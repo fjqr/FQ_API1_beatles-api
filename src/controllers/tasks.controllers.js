@@ -66,7 +66,9 @@ const getASong = async (req, res, next) => {
 const albumSongs = async (req, res, next) => {
     try {
         const { id } = req.params
-        const albumSongs = await pool.query('SELECT * FROM songs INNER JOIN albums ON songs.albumid = albums.id')
+        const albumSongs = await pool.query('SELECT * FROM songs WHERE albumid = $1',[id])
+        //const albumSongs = await pool.query('SELECT * FROM songs')
+        res.json(albumSongs.rows)
     } catch (error) {
         next(error)
     }

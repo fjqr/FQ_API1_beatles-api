@@ -4,7 +4,7 @@ export default{
 
       setup(){
             const estado = reactive({
-                  titulo: 'BEAT-API',
+                  titulo: 'BEAT-API'
             })
             return{
                   estado

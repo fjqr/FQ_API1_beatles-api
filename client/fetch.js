@@ -6,7 +6,7 @@ export const useFetch = url => {
   fetch(url)
     .then(data => data.json())
     .then(json => result.datos = json)
-    .catch(err => result.error = err)
+    .catch(err => result.datos = err)
     return result
 }
 

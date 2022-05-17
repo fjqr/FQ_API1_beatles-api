@@ -12,6 +12,7 @@ router.post('/createalbum', createAlbum)
 router.post('/createsong', createSong)
 router.get('/getsong/:id', getASong)
 router.get('/albumsongs/:id', albumSongs)
+//router.get('/albumsongs', albumSongs)
 
 
 router.put('/', (res, req) => {
