@@ -14,7 +14,7 @@ export default{
 </script>
 
 <template>
- <nav class="w-full text-gray-200 bg-gray-600 h-24 p-1">
+ <nav class="w-full text-gray-200 bg-gray-900 h-24 p-1">
 <p class="text-2xl"> {{estado.titulo}}</p>
  </nav>
 </template>

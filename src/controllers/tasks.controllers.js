@@ -45,8 +45,8 @@ const createAlbum = async (req, res, next) => {
 
 const createSong = async (req, res, next) => {
     try {
-        const { title, duration, albumid, lyrics, musiciansid, leadsinger } = req.body
-        const newSong = await pool.query('INSERT INTO songs(title,duration,albumid,lyrics,musiciansid,leadsinger) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [title, duration, albumid, lyrics, musiciansid,leadsinger])
+        const { title, duration, albumid, lyrics, songwriter, leadsinger } = req.body
+        const newSong = await pool.query('INSERT INTO songs(title,duration,albumid,lyrics,songwriter,leadsinger) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [title, duration, albumid, lyrics, songwriter,leadsinger])
         res.json(newSong.rows)
     } catch (error) {
         next(error)
