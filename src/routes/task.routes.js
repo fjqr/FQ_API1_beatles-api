@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { getAlbums, getBeatles, getAnAlbum, createAlbum, createSong, getASong, albumSongs } = require('../controllers/tasks.controllers')
+const { updateSongs, getAlbums, getBeatles, getAnAlbum, createAlbum, createSong, getASong, albumSongs } = require('../controllers/tasks.controllers')
 
 const router = Router()
 
@@ -15,9 +15,7 @@ router.get('/albumsongs/:id', albumSongs)
 //router.get('/albumsongs', albumSongs)
 
 
-router.put('/', (res, req) => {
-    res.send('Hola')
-})
+router.put('/updatesong/:id', updateSongs)
 
 
 router.delete('/', (res, req) => {

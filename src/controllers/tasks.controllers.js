@@ -46,7 +46,7 @@ const createAlbum = async (req, res, next) => {
 const createSong = async (req, res, next) => {
     try {
         const { title, duration, albumid, lyrics, songwriter, leadsinger } = req.body
-        const newSong = await pool.query('INSERT INTO songs(title,duration,albumid,lyrics,songwriter,leadsinger) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [title, duration, albumid, lyrics, songwriter,leadsinger])
+        const newSong = await pool.query('INSERT INTO songs(title,duration,albumid,lyrics,songwriter,leadsinger) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [title, duration, albumid, lyrics, songwriter, leadsinger])
         res.json(newSong.rows)
     } catch (error) {
         next(error)
@@ -66,14 +66,24 @@ const getASong = async (req, res, next) => {
 const albumSongs = async (req, res, next) => {
     try {
         const { id } = req.params
-        const albumSongs = await pool.query('SELECT * FROM songs WHERE albumid = $1',[id])
+        const album_songs = await pool.query('SELECT * FROM songs WHERE albumid = $1', [id])
         //const albumSongs = await pool.query('SELECT * FROM songs')
-        res.json(albumSongs.rows)
+        res.json(album_songs.rows)
     } catch (error) {
         next(error)
     }
 }
 
+const updateSongs = async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const { title, duration, albumid, lyrics, songwriter, leadsinger } = req.body
+        const update_songs = await pool.query('UPDATE songs SET title = $1, duration = $2, albumid = $3, lyrics = $4, songwriter = $5, leadsinger = $6 WHERE id = $7', [title, duration, albumid, lyrics, songwriter, leadsinger, id])
+        res.json(update_songs.rows)
+    } catch (error) {
+        next(error)
+    }
+}
 
 module.exports = {
     getAlbums,
@@ -82,5 +92,6 @@ module.exports = {
     createAlbum,
     createSong,
     getASong,
-    albumSongs
+    albumSongs,
+    updateSongs
 }

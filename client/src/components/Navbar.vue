@@ -14,8 +14,8 @@ export default{
 </script>
 
 <template>
- <nav class="w-full text-gray-200 bg-gray-900 h-24 p-1">
-<p class="text-2xl"> {{estado.titulo}}</p>
+ <nav class="w-full text-gray-200 bg-gray-900 h-auto p-1 flex justify-center">
+<p class="text-7xl font-serif"> {{estado.titulo}}</p>
  </nav>
 </template>
 

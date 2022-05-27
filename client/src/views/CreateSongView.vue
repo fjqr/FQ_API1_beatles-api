@@ -1,7 +1,7 @@
 <script>
-import { onMounted,onUpdated, reactive } from 'vue'
+import { onMounted,onUpdated, reactive,ref } from 'vue'
 import { useFetch } from '../../fetch'
-
+import vm from '../main'
 export default {
     props: {
         id: {
@@ -32,8 +32,8 @@ export default {
                 "songwriter": estado.songwriter,
                 "leadsinger": estado.leadSinger
             }
-            useFetch(estado.createSongUrl, estado.method, estado.data)
-            
+           // useFetch(estado.createSongUrl, estado.method, estado.data)
+            console.log(vm.$refs)
         }
 
         return {
@@ -51,7 +51,7 @@ export default {
             <input class="form-input m-4 w-80" v-model="estado.duracion" type="text" name="duracion" id=""
                 placeholder="Duración">
             <textarea class="form-textarea m-4 w-80" v-model="estado.lyrics" name="lyrics" id="" cols="30" rows="10"
-                placeholder="Lyrics"></textarea>
+                placeholder="Lyrics" ref="lyrics"></textarea>
             <input class="form-input m-4 w-80" v-model="estado.songwriter" name="songwriter" type="text" placeholder="Songwriter">
             <input class="form-input m-4 w-80" v-model="estado.leadSinger" type="text" name="Lead singer" id=""
                 placeholder="Lead Singer">
