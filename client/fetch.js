@@ -8,16 +8,26 @@ export const useFetch = (url, method = "GET", body = null) => {
       body: JSON.stringify(body),
       headers: { "Content-type": "application/json" }
     })
-      .then(res => result.datos = res.json())
-      .catch(err => result.datos = err.message)
+      .then(res => {
+        result.datos = res.json()
+        console.log(res)
+      })
+      .catch(err => {
+        err.message
+      })
   } else {
 
     fetch(url)
       .then(data => data.json())
-      .then(json => result.datos = json)
-      .catch(err => result.datos = err.message)
+      .then(json => {
+        result.datos = json
+        //alert("Operación exitosa")
+      })
+      .catch(err => {
+        err.message
+      })
   }
-  console.log(result)
+  //console.log(result)
   return result
 }
 

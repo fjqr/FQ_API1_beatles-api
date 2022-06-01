@@ -22,18 +22,7 @@ export default {
             showSongs: false,
             lyrics: null
         })
-        const setBackground = id => {
-            // const bg = document.querySelector(".bg")
-            //  bg.style.backgroundImage = "url('../assets/images/please.jpeg')"
-            // switch (id) {
-            //     case 1:
-            //         bg.style.backgroundImage = "url('../assets/images/please.jpeg')"
-            //         break;
 
-            //     default:
-            //         break;
-            // }
-        }
         const getSongs = id => {
             estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
             estado.songs = useFetch(estado.urlSongs)
@@ -45,31 +34,29 @@ export default {
 
         onMounted(() => {
             getSongs(props.id)
-            //setBackground(props.id)
-            // const bg = document.querySelector(".bg")
-            // bg.style.backgroundImage = "url('../assets/images/please.jpeg')"
+
             setTimeout(() => {
                 estado.showSongs = true
             }, 5000);
         })
 
         return {
-            estado, getSongs, lyrics, setBackground
+            estado, getSongs, lyrics
         }
     }
 }
 </script>
 <template>
     <Background :id="estado.id" />
-    <div class="container-xl p-10 font-sans z-2 absolute w-fit h-3/4 inset-32 bg-white/25 backdrop-blur-md rounded-2xl">
+    <div class="container-xl p-10 font-sans z-2 absolute w-fit h-3/4 inset-32 bg-white/50 backdrop-blur-lg rounded-2xl">
 
         <button>
             <RouterLink to="/">Volver</RouterLink>
         </button>
         <p class="text-6xl z-50">Lista de temas:</p>
         <div v-if="estado.showSongs === true" class="flex justify-between">
-            <ol class="m-6 list-decimal">
-                <li v-for="songs of estado.songs.datos" @mouseover="lyrics(songs.lyrics)">
+            <ol class="overflow-y-auto h-80 m-6">
+                <li v-for="songs of estado.songs.datos" @mouseover="lyrics(songs.lyrics)" class="hover">
                     {{ songs.title }} : {{ songs.duration }}
                     <!-- <div>
                         <RouterLink :to="`/updatesong/${songs.id}`">Actualizar</RouterLink>
@@ -87,5 +74,9 @@ export default {
 <style>
 .bgtx {
     background-color: rgba(100, 100, 100, .1);
+}
+
+.hover:hover {
+    cursor: pointer
 }
 </style>

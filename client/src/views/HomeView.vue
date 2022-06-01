@@ -70,3 +70,4 @@ export default {
   </main>
   <!-- <Songs v-if="estado.showSongs === true" @songs="estado.songs"></Songs> -->
 </template>
+

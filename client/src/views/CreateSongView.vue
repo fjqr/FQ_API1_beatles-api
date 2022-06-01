@@ -1,5 +1,5 @@
 <script>
-import { onMounted,onUpdated, reactive,ref } from 'vue'
+import { onMounted, onUpdated, reactive, ref } from 'vue'
 import { useFetch } from '../../fetch'
 import vm from '../main'
 export default {
@@ -21,7 +21,8 @@ export default {
             songwriter: null,
             beatlesUrl: 'http://localhost:3000/beatles',
             createSongUrl: 'http://localhost:3000/createsong',
-            showData: false
+            showData: false,
+
         })
         const createSongs = () => {
             estado.data = {
@@ -32,8 +33,11 @@ export default {
                 "songwriter": estado.songwriter,
                 "leadsinger": estado.leadSinger
             }
-           // useFetch(estado.createSongUrl, estado.method, estado.data)
-            console.log(vm.$refs)
+            useFetch(estado.createSongUrl, estado.method, estado.data)
+
+            setTimeout(() => {
+                location.reload()
+            }, 2000)
         }
 
         return {
@@ -52,12 +56,13 @@ export default {
                 placeholder="Duración">
             <textarea class="form-textarea m-4 w-80" v-model="estado.lyrics" name="lyrics" id="" cols="30" rows="10"
                 placeholder="Lyrics" ref="lyrics"></textarea>
-            <input class="form-input m-4 w-80" v-model="estado.songwriter" name="songwriter" type="text" placeholder="Songwriter">
+            <input class="form-input m-4 w-80" v-model="estado.songwriter" name="songwriter" type="text"
+                placeholder="Songwriter">
             <input class="form-input m-4 w-80" v-model="estado.leadSinger" type="text" name="Lead singer" id=""
                 placeholder="Lead Singer">
             <!-- <button class="w-80 m-4" @click="show">Enviar</button> -->
         </form>
-        <button @click="createSongs()">Enviar</button>
+        <button @click="createSongs()" type="submit">Enviar</button>
 
     </div>
 </template>
