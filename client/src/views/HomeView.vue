@@ -15,19 +15,14 @@ export default {
       showSongs: false
     })
 
-    const getAlbums = () => {
-      estado.data = useFetch(estado.urlAlbums)
+    const getAlbums = async () => {
+      estado.data = await useFetch(estado.urlAlbums)
+      console.log(estado.data)
     }
-    onUpdated(() => {
-      // console.log("updated")
-    })
 
     onMounted(() => {
       getAlbums()
-      setTimeout(() => {
-        // console.log("mounted after 6sec")
-        estado.show = true
-      }, 5000);
+
     })
     return {
       estado, getAlbums
@@ -48,13 +43,10 @@ export default {
             <th class="table-cell text-left px-8">Año</th>
             <th class="table-cell text-left px-8">Tipo</th>
             <th class="table-cell text-left px-8">Canciones</th>
-            <!-- <th class="table-cell text-left px-8">{{estado.show}}</th> -->
           </tr>
         </thead>
-        <tbody v-if="estado.show === true" class="table-row-group">
-          <!-- <tbody  class="table-row-group"> -->
-
-          <tr v-for="datos of estado.data.datos" class="table-row">
+        <tbody class="table-row-group">
+          <tr v-for="datos of estado.data" class="table-row">
             <td class="table-cell px-8">{{ datos.title }}</td>
             <td class="table-cell px-8">{{ datos.year }}</td>
             <td class="table-cell px-8">{{ datos.type }}</td>
@@ -68,6 +60,5 @@ export default {
       </table>
     </div>
   </main>
-  <!-- <Songs v-if="estado.showSongs === true" @songs="estado.songs"></Songs> -->
 </template>
 

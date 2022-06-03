@@ -54,7 +54,7 @@ export default {
                 estado.lyrics = estado.songData.datos[0].lyrics,
                     estado.songwriter = estado.songData.datos[0].songwriter
                 estado.leadSinger = estado.songData.datos[0].leadsinger
-            }, 5000);
+            }, 6000);
         })
         return {
             estado, updateSongs, getASong

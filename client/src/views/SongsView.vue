@@ -23,21 +23,19 @@ export default {
             lyrics: null
         })
 
-        const getSongs = id => {
+        const getSongs = async id => {
             estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
-            estado.songs = useFetch(estado.urlSongs)
+            estado.songs = await useFetch(estado.urlSongs)
+            console.log(estado.songs)
         }
 
         const lyrics = lyrics => {
             estado.lyrics = lyrics
+
         }
 
         onMounted(() => {
             getSongs(props.id)
-
-            setTimeout(() => {
-                estado.showSongs = true
-            }, 5000);
         })
 
         return {
@@ -54,14 +52,14 @@ export default {
             <RouterLink to="/">Volver</RouterLink>
         </button>
         <p class="text-6xl z-50">Lista de temas:</p>
-        <div v-if="estado.showSongs === true" class="flex justify-between">
+        <div class="flex justify-between">
             <ol class="overflow-y-auto h-80 m-6">
-                <li v-for="songs of estado.songs.datos" @mouseover="lyrics(songs.lyrics)" class="hover">
+                <li v-for="songs of estado.songs" @mouseover="lyrics(songs.lyrics)" class="hover">
                     {{ songs.title }} : {{ songs.duration }}
-                    <!-- <div>
+                    <div>
                         <RouterLink :to="`/updatesong/${songs.id}`">Actualizar</RouterLink>
 
-                    </div> -->
+                    </div>
                 </li>
             </ol>
 
