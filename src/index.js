@@ -28,8 +28,8 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(port, () => {
-    console.log(`App corriendo en el puerto ${process.env.PORT || port}`)
+app.listen(process.env.PORT, () => {
+    console.log(`App corriendo en el puerto ${process.env.PORT}`)
 })
 
 
