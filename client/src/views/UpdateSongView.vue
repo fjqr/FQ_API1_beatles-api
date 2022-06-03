@@ -42,7 +42,7 @@ export default {
             //estado.queryData = [...document.querySelector("form").children].map(v => v.value)
             estado.method = "GET"
             estado.songData = useFetch(estado.getASongUrl, estado.method)
-            console.log(estado.songData)
+
 
         }
         onMounted(() => {

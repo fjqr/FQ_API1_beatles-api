@@ -17,7 +17,7 @@ export default {
 
     const getAlbums = async () => {
       estado.data = await useFetch(estado.urlAlbums)
-      console.log(estado.data)
+
     }
 
     onMounted(() => {

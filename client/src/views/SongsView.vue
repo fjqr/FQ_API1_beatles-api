@@ -26,7 +26,7 @@ export default {
         const getSongs = async id => {
             estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
             estado.songs = await useFetch(estado.urlSongs)
-            console.log(estado.songs)
+
         }
 
         const lyrics = lyrics => {
