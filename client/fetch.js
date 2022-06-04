@@ -37,7 +37,7 @@ export const useFetch = async (url, method = "GET", body = null) => {
     if (method !== "GET") {
       result = await fetch(url, {
         method,
-        body: stringify(body),
+        body: JSON.stringify(body),
         headers: { "Content-type": "application/json" }
       })
       data = await result.json()
