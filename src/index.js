@@ -28,9 +28,13 @@ app.use((err, req, res, next) => {
     })
 })
 
-app.listen(process.env.PORT, () => {
-    console.log(`App corriendo en el puerto ${process.env.PORT}`)
+app.listen(port, () => {
+    console.log(`App corriendo en el puerto ${port}`)
 })
+
+// app.listen(process.env.PORT, () => {
+//     console.log(`App corriendo en el puerto ${process.env.PORT}`)
+// })
 
 
 
