@@ -26,7 +26,6 @@ export default {
         const getSongs = async id => {
             estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
             estado.songs = await useFetch(estado.urlSongs)
-
         }
 
         const lyrics = lyrics => {
@@ -56,10 +55,10 @@ export default {
             <ol class="overflow-y-auto h-80 m-6">
                 <li v-for="songs of estado.songs" @mouseover="lyrics(songs.lyrics)" class="hover">
                     {{ songs.title }} : {{ songs.duration }}
-                    <div>
-                        <RouterLink :to="`/updatesong/${songs.id}`">Actualizar</RouterLink>
+                    // <div>
+                        // <RouterLink :to="`/updatesong/${songs.id}`">Actualizar</RouterLink>
 
-                    </div>
+                        // </div>
                 </li>
             </ol>
 
