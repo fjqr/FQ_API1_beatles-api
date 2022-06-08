@@ -18,8 +18,6 @@ router.get('/albumsongs/:id', albumSongs)
 router.put('/updatesong/:id', updateSongs)
 
 
-router.delete('/', (res, req) => {
-    res.send('Hola')
-})
+
 
 module.exports = router

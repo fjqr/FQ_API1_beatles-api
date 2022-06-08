@@ -15,17 +15,19 @@ export default {
         }
     },
     setup(props) {
+        let songs = reactive({})
         const estado = reactive({
             id: props.id,
-            songs: {},
             titles: [],
             showSongs: false,
-            lyrics: null
+            lyrics: null,
+            urlSongs: null
         })
 
         const getSongs = async id => {
             estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
-            estado.songs = await useFetch(estado.urlSongs)
+            songs.datos = await useFetch(estado.urlSongs)
+
         }
 
         const lyrics = lyrics => {
@@ -38,7 +40,7 @@ export default {
         })
 
         return {
-            estado, getSongs, lyrics
+            estado, getSongs, lyrics, songs
         }
     }
 }
@@ -53,12 +55,12 @@ export default {
         <p class="text-6xl z-50">Lista de temas:</p>
         <div class="flex justify-between">
             <ol class="overflow-y-auto h-80 m-6">
-                <li v-for="songs of estado.songs" @mouseover="lyrics(songs.lyrics)" class="hover">
-                    {{ songs.title }} : {{ songs.duration }}
-                    // <div>
-                        // <RouterLink :to="`/updatesong/${songs.id}`">Actualizar</RouterLink>
+                <li v-for="songsData of songs.datos" @mouseover="lyrics(songsData.lyrics)" class="hover">
+                    {{ songsData.title }} : {{ songsData.duration }}
+                    <!--<div>
+                        <RouterLink :to="`/updatesong/${songs.id}`">Actualizar</RouterLink>
 
-                        // </div>
+                         </div>-->
                 </li>
             </ol>
 

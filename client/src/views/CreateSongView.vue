@@ -11,8 +11,8 @@ export default {
     },
     setup(props) {
 
+        let data = reactive({})
         const estado = reactive({
-            data: {},
             method: "POST",
             titulo: null,
             duracion: null,
@@ -25,7 +25,7 @@ export default {
 
         })
         const createSongs = () => {
-            estado.data = {
+            data = {
                 "title": estado.titulo,
                 "duration": estado.duracion,
                 "albumid": +props.id,
@@ -33,7 +33,7 @@ export default {
                 "songwriter": estado.songwriter,
                 "leadsinger": estado.leadSinger
             }
-            useFetch(estado.createSongUrl, estado.method, estado.data)
+            useFetch(estado.createSongUrl, estado.method, data)
 
             setTimeout(() => {
                 location.reload()
@@ -41,7 +41,7 @@ export default {
         }
 
         return {
-            estado, createSongs
+            estado, createSongs, data
         }
     }
 }

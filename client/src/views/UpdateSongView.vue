@@ -11,8 +11,8 @@ export default {
     },
     setup(props) {
 
+        let data = reactive({})
         const estado = reactive({
-            data: {},
             method: null,
             titulo: null,
             duracion: null,
@@ -26,7 +26,7 @@ export default {
             // queryData: null
         })
         const updateSongs = () => {
-            estado.data = {
+            data = {
                 "title": estado.titulo,
                 "duration": estado.duracion,
                 "albumid": estado.songData.datos[0].albumid,
@@ -35,7 +35,7 @@ export default {
                 "leadsinger": estado.leadSinger
             }
             estado.method = "PUT"
-            useFetch(estado.updateSongUrl, estado.method, estado.data)
+            useFetch(estado.updateSongUrl, estado.method, data)
         }
 
         const getASong = id => {
@@ -56,7 +56,7 @@ export default {
             }, 6000);
         })
         return {
-            estado, updateSongs, getASong
+            estado, updateSongs, getASong, data
         }
     }
 }

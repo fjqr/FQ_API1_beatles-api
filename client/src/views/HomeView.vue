@@ -6,9 +6,9 @@ import { RouterLink, RouterView } from 'vue-router'
 export default {
 
   setup() {
+    let data = reactive({})
     const estado = reactive({
       show: false,
-      data: {},
       urlAlbums: 'http://localhost:3000/albums',
       urlSongs: null,
       newUrl: null,
@@ -16,7 +16,7 @@ export default {
     })
 
     const getAlbums = async () => {
-      estado.data = await useFetch(estado.urlAlbums)
+      data.datos = await useFetch(estado.urlAlbums)
     }
 
     onMounted(() => {
@@ -24,7 +24,7 @@ export default {
 
     })
     return {
-      estado, getAlbums
+      estado, getAlbums, data
     }
   }
 }
@@ -45,7 +45,7 @@ export default {
           </tr>
         </thead>
         <tbody class="table-row-group">
-          <tr v-for="datos of estado.data" class="table-row">
+          <tr v-for="datos of data.datos" class="table-row">
             <td class="table-cell px-8">{{ datos.title }}</td>
             <td class="table-cell px-8">{{ datos.year }}</td>
             <td class="table-cell px-8">{{ datos.type }}</td>
