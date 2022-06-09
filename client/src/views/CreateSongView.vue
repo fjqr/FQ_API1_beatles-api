@@ -1,7 +1,7 @@
 <script>
 import { onMounted, onUpdated, reactive, ref } from 'vue'
 import { useFetch } from '../../fetch'
-import vm from '../main'
+
 export default {
     props: {
         id: {
@@ -19,8 +19,8 @@ export default {
             lyrics: null,
             leadSinger: null,
             songwriter: null,
-            beatlesUrl: 'http://localhost:3000/beatles',
-            createSongUrl: 'http://localhost:3000/createsong',
+            beatlesUrl: `/beatles`,
+            createSongUrl: `/createsong`,
             showData: false,
 
         })

@@ -4,6 +4,7 @@ import { useFetch } from '../../fetch'
 import { RouterLink, RouterView } from 'vue-router'
 import Background from '../components/Background.vue'
 
+
 export default {
     components: {
         Background
@@ -15,6 +16,7 @@ export default {
         }
     },
     setup(props) {
+
         let songs = reactive({})
         const estado = reactive({
             id: props.id,
@@ -25,7 +27,7 @@ export default {
         })
 
         const getSongs = async id => {
-            estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
+            estado.urlSongs = `/albumsongs/${id}`
             songs.datos = await useFetch(estado.urlSongs)
 
         }

@@ -1,7 +1,7 @@
 <script>
 import { onMounted, onUpdated, reactive, ref } from 'vue'
 import { useFetch } from '../../fetch'
-import vm from '../main'
+
 export default {
     props: {
         id: {
@@ -10,7 +10,6 @@ export default {
         }
     },
     setup(props) {
-
         let data = reactive({})
         const estado = reactive({
             method: null,
@@ -19,11 +18,11 @@ export default {
             lyrics: null,
             leadSinger: null,
             songwriter: null,
-            updateSongUrl: `http://localhost:3000/updatesong/${props.id}`,
-            getASongUrl: `http://localhost:3000/getsong/${props.id}`,
+            updateSongUrl: `/updatesong/${props.id}`,
+            getASongUrl: `/getsong/${props.id}`,
             showData: false,
             songData: {}
-            // queryData: null
+
         })
         const updateSongs = () => {
             data = {
@@ -39,7 +38,7 @@ export default {
         }
 
         const getASong = id => {
-            //estado.queryData = [...document.querySelector("form").children].map(v => v.value)
+
             estado.method = "GET"
             estado.songData = useFetch(estado.getASongUrl, estado.method)
 

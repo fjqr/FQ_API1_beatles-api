@@ -2,15 +2,17 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const taskRoutes = require('./routes/task.routes')
+const path = require('path')
 
 const app = express()
-const port = 3000
-//const port = 5432
-
 app.use(cors())
+let port = process.env.PORT || 3000
+
+
 app.use(express.json())
 app.use(taskRoutes)
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(
     bodyParser.urlencoded({
@@ -32,9 +34,7 @@ app.listen(port, () => {
     console.log(`App corriendo en el puerto ${port}`)
 })
 
-// app.listen(process.env.PORT, () => {
-//     console.log(`App corriendo en el puerto ${process.env.PORT}`)
-// })
+
 
 
 

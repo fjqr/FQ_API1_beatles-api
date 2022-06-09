@@ -1,5 +1,6 @@
 
 export const useFetch = async (url, method = "GET", bodyQuery = {}) => {
+
   let result, dataQuery
   try {
     if (method !== "GET") {

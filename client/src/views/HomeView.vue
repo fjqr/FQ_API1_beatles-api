@@ -1,5 +1,5 @@
 <script>
-import { onMounted, onUpdated, reactive } from 'vue'
+import { onMounted, reactive } from 'vue'
 import { useFetch } from '../../fetch'
 import { RouterLink, RouterView } from 'vue-router'
 
@@ -9,7 +9,7 @@ export default {
     let data = reactive({})
     const estado = reactive({
       show: false,
-      urlAlbums: 'http://localhost:3000/albums',
+      urlAlbums: '/albums',
       urlSongs: null,
       newUrl: null,
       showSongs: false
@@ -17,6 +17,7 @@ export default {
 
     const getAlbums = async () => {
       data.datos = await useFetch(estado.urlAlbums)
+
     }
 
     onMounted(() => {
