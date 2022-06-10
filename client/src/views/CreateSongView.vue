@@ -19,8 +19,8 @@ export default {
             lyrics: null,
             leadSinger: null,
             songwriter: null,
-            beatlesUrl: `/beatles`,
-            createSongUrl: `/createsong`,
+            beatlesUrl: `http://localhost:3000/beatles`,
+            createSongUrl: `http://localhost:3000/createsong`,
             showData: false,
 
         })

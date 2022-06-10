@@ -18,8 +18,8 @@ export default {
             lyrics: null,
             leadSinger: null,
             songwriter: null,
-            updateSongUrl: `/updatesong/${props.id}`,
-            getASongUrl: `/getsong/${props.id}`,
+            updateSongUrl: `http://localhost:3000/updatesong/${props.id}`,
+            getASongUrl: `http://localhost:3000/getsong/${props.id}`,
             showData: false,
             songData: {}
 

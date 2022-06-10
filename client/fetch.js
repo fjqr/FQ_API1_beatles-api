@@ -14,6 +14,7 @@ export const useFetch = async (url, method = "GET", bodyQuery = {}) => {
     } else {
       result = await fetch(url)
       dataQuery = await result.json()
+
       return dataQuery
     }
   } catch (error) {
