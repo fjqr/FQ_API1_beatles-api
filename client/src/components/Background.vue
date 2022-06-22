@@ -72,70 +72,70 @@ export default {
 }
 </script>
 <template>
-    <div class="bg blur bg-cover w-screen" style="height: calc(100vh + 10rem);"></div>
+    <div class="bg blur bg-cover bg-repeat-y w-screen" style="height: calc(100vh + 10rem);"></div>
 
 </template>
 <style>
 .bg {
-    background-image: url(../assets/images/apple.jpeg);
+    background-image: url(../static/apple.jpeg);
 }
 
 .bg1 {
-    background-image: url(../assets/images/please.jpeg);
+    background-image: url(../static/please.jpeg);
 }
 
 .bg2 {
-    background-image: url(../assets/images/with.png);
+    background-image: url(../static/with.png);
     background-size: cover;
 
 }
 
 .bg3 {
-    background-image: url(../assets/images/hard.png);
+    background-image: url(../static/hard.png);
 }
 
 .bg4 {
-    background-image: url(../assets/images/sale.jpeg);
+    background-image: url(../static/sale.jpeg);
 }
 
 .bg5 {
-    background-image: url(../assets/images/help.jpeg);
+    background-image: url(../static/help.jpeg);
 }
 
 .bg6 {
-    background-image: url(../assets/images/rubbersoul.jpeg);
+    background-image: url(../static/rubbersoul.jpeg);
 }
 
 .bg7 {
-    background-image: url(../assets/images/revolver.jpeg);
+    background-image: url(../static/revolver.jpeg);
 }
 
 .bg8 {
-    background-image: url(../assets/images/pepper.jpeg);
+    background-image: url(../static/pepper.jpeg);
 }
 
 
 .bg9 {
-    background-image: url(../assets/images/magical.png);
+    background-image: url(../static/magical.png);
 }
 
 .bg10 {
-    background-image: url(../assets/images/yellow.png);
+    background-image: url(../static/yellow.png);
 }
 
 .bg11 {
-    background-image: url(../assets/images/white.jpeg);
+    background-image: url(../static/white.jpeg);
 }
 
 .bg12 {
-    background-image: url(../assets/images/abbeyroad.jpeg);
+    background-image: url(../static/abbeyroad.jpeg);
 }
 
 .bg13 {
-    background-image: url(../assets/images/letitbe.png);
+    background-image: url(../static/letitbe.png);
 }
 
 .bg15 {
-    background-image: url(../assets/images/anthology.png);
+    background-image: url(../static/anthology.png);
 }
 </style>

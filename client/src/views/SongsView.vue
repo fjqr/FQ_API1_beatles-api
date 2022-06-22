@@ -27,8 +27,8 @@ export default {
         })
 
         const getSongs = async id => {
-            //estado.urlSongs = `/albumsongs/${id}`
-            estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
+            estado.urlSongs = `/albumsongs/${id}`
+            //estado.urlSongs = `http://localhost:3000/albumsongs/${id}`
             songs.datos = await useFetch(estado.urlSongs)
 
         }
@@ -40,6 +40,7 @@ export default {
 
         onMounted(() => {
             getSongs(props.id)
+
         })
 
         return {
@@ -56,6 +57,7 @@ export default {
         <button class="m-2">
             <RouterLink to="/">Volver</RouterLink>
         </button>
+
         <div class="flex justify-evenly flex-col sm:flex-row">
             <p class="sm:hidden m-4 text-sm text-neutral-600">Presiona sobre una canción para ver su letra</p>
             <div>
@@ -82,8 +84,6 @@ export default {
         </div>
 
     </div>
-
-
 </template>
 <style>
 .bgtx {

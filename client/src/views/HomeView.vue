@@ -9,8 +9,8 @@ export default {
     let data = reactive({})
     const estado = reactive({
       show: false,
-      //urlAlbums: '/albums',
-      urlAlbums: 'http://localhost:3000/albums',
+      urlAlbums: '/albums',
+      //urlAlbums: 'http://localhost:3000/albums',
       urlSongs: null,
       newUrl: null,
       showSongs: false
@@ -18,8 +18,8 @@ export default {
 
     const getAlbums = async () => {
       data.datos = await useFetch(estado.urlAlbums)
-
     }
+
 
     onMounted(() => {
       getAlbums()
@@ -53,7 +53,7 @@ export default {
             <td class="table-cell px-2 sm:px-8">{{ datos.type }}</td>
             <td class="table-cell px-2 sm:px-8">
               <button class="bg-gray-900 text-gray-200 p-2 m-1">
-                <RouterLink :to="`/albumsongs/${datos.id}`">Ver</RouterLink>
+                <RouterLink :to="`/songs/${datos.id}`">Ver</RouterLink>
               </button>
             </td>
           </tr>
@@ -61,5 +61,6 @@ export default {
       </table>
     </div>
   </main>
+
 </template>
 

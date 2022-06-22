@@ -1,6 +1,6 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import  Navbar  from './components/Navbar.vue'
+import Navbar from './components/Navbar.vue'
 
 export default {
 
@@ -18,7 +18,7 @@ export default {
     <div>
       <nav>
         <Navbar />
-        <!-- <RouterLink to="/">Home</RouterLink> -->
+
       </nav>
     </div>
   </header>

@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import SongsView from '../views/SongsView.vue'
-import CreateSongView from '../views/CreateSongView.vue'
-import UpdateSongView from '../views/UpdateSongView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,25 +7,31 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: () => import('../views/HomeView.vue')
     },
     {
-      path: '/albumsongs/:id',
-      name: 'albumsongs',
-      component: SongsView,
+      path: '/songs/:id',
+      name: 'songs',
+      component: () => import('../views/SongsView.vue'),
       props: true
     },
     {
       path: '/createsong/:id',
       name: 'createsong',
-      component: CreateSongView,
+      component: () => import('../views/CreateSongView.vue'),
       props: true
     },
     {
       path: '/updatesong/:id',
       name: 'updatesong',
-      component: UpdateSongView,
+      component: () => import('../views/UpdateSongView.vue'),
       props: true
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notfound',
+      component: () => import('../views/NotFoundView.vue')
+
     }
   ]
 })
